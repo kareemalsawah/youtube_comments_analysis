@@ -5,6 +5,7 @@ This is the mobile application used to run our application. It was developed usi
 * Microcharts (to draw a piechart to represent ratios)
 <br/>
 To build the application youself make sure you install the following packages using NuGet package manager(you also need xamarin of course):
+<br/>
 * Microcharts
 * Microcharts.Forms
 * Refit
