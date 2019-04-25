@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Welcome to Glitch!</title>
+    <meta name="description" content="Sentiment analysis for youtube comments api documentation">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <header>
+      <h1>
+        MSP Ain shams team, youtube comments sentiment analysis api
+      </h1>
+    </header>
+
+    <main>
+      This api is designed to get a youtube video id from the client and perform the following:
+      <ul>
+        <li>
+          Collect comments on the given youtube video.
+        </li>
+        <li>
+          Perform sentiment analysis on each of the comments
+        </li>
+        <li>
+          Return to the client the ratio positive_comments/total_number_of_comments
+        </li>
+      </ul>
+
+      <br/>
+      To use the api, use a post method to the url ("https://hollow-orange.glitch.me/sentiment_analysis") and include the following parameters using url encoded:
+      <ul>
+        <li>
+          num_of_comments: the maximum number of comments to collect from youtube (currently doesn't affect operation of the api)
+        </li>
+        <li>
+          video_id: the id (not the url) of the youtube video
+        </li>
+      </ul>
+    </main>
+    <footer>
+    </footer>
+  </body>
+</html>
