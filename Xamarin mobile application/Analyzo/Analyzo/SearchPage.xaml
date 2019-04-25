@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:forms="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms" 
+             x:Class="Analyzo.SearchPage" BackgroundColor="DarkRed"
+              NavigationPage.HasBackButton="False"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+
+        <StackLayout  HorizontalOptions="Center"  VerticalOptions="Start" >
+            <Image Source="Analyzo2.png" HorizontalOptions="Center"  VerticalOptions="Start" Margin="50"></Image>
+            <StackLayout Padding="20" BackgroundColor="White" HorizontalOptions="Center" VerticalOptions="Center" >
+                <Frame HorizontalOptions="Center" VerticalOptions="CenterAndExpand" CornerRadius="20">
+                    <Entry Placeholder="Write YouTube Video ID" Opacity=".4" x:Name="text_entry"></Entry>
+                </Frame>
+                <Button Text="        Analyze        " 
+                    TextColor="White" 
+                    Clicked="Search_Clicked" 
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="Center" 
+                    BorderRadius="20" 
+                    BackgroundColor="DarkRed">
+                </Button>
+
+                <Label x:Name="loading_label" Text="Loading" HorizontalTextAlignment="Center" FontSize="Large" IsVisible="False"></Label>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Analyzo"
+             x:Class="Analyzo.MainPage" BackgroundColor="DarkRed"
+              NavigationPage.HasBackButton="False"
+             NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Image Margin="20" 
+                   Source="Analyzo.png"
+                   HorizontalOptions="Center"  
+                   VerticalOptions="Start">
+            </Image>
+            <Button Text="     Start     " BackgroundColor="White " 
+                    Clicked="Start_Clicked" 
+                    HorizontalOptions="FillAndExpand" 
+                    VerticalOptions="Center" 
+                    BorderRadius="20" ></Button>
+
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>
