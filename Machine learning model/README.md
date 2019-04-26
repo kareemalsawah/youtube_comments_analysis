@@ -1,4 +1,4 @@
-##Sentiment analysis on youtube comments
+## Sentiment analysis on youtube comments
 
 This is the notebook used to train the naive bayes model to do the sentiment analysis. It was trained using the imbd movie dataset.
 <br/>
