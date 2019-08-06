@@ -30,24 +30,7 @@ namespace Analyzo
         {
             loading_label.IsVisible = true;
 
-            //Get the video id from the pasted url
-            string videoURL = text_entry.Text,sID=""; int st = 0; 
-            for (int i = 0; i < videoURL.Length; i++)
-            {
-                if ((videoURL[i] == '?' && videoURL[i + 1] == 'v' )|| (videoURL[i] == '&' && videoURL[i + 1] == 'v'))
-                {
-                    i+=3;
-                    st = 1;
-                }
-                if (st==1)
-                {
-                    sID += videoURL[i]; 
-                }
-                if (videoURL[i] == '&') break;
-
-            }
-            
-            string VideoID = sID; //Contains the video id to send to the server
+            string VideoID = get_videoID(); //Contains the video id to send to the server
 
             IAnalysisApi analysis_api = ApiService.getApiService();
 
@@ -82,5 +65,57 @@ namespace Analyzo
             }, TaskScheduler.FromCurrentSynchronizationContext())// execute in main/UI thread.
              .ConfigureAwait(false);
         }
+
+
+		//this function gets the video ID from the URL
+		private string get_videoID()
+		{
+			//Get the video id from the pasted url
+			string videoURL = text_entry.Text, sID = ""; int st = 0;
+			for (int i = 0; i < videoURL.Length; i++)
+			{
+				//for this format : www.youtube.com/watch?v=-wtIMTCHWuI
+				// and
+				//www.youtube.com/oembed?url=http%3A//www.youtube.com/watch?v%3D-wtIMTCHWuI&format=json
+
+				if ((videoURL[i] == '?' && videoURL[i + 1] == 'v' && videoURL[i + 2] != 'e') || (videoURL[i] == '&' && videoURL[i + 1] == 'v'))
+				{
+					if (videoURL[i + 2] == '%')
+					{
+						i += 5;
+
+					}
+					else
+						i += 3;
+
+					st = 1;
+				}
+
+				if (videoURL[i] == '&') break;
+				//for this format : www.youtube.com/v/-wtIMTCHWuI?version=3&autohide=1
+
+				if ((videoURL[i] == '/' && videoURL[i + 1] == 'v'))
+				{
+					i += 3;
+					st = 1;
+				}
+
+				if (videoURL[i] == '?') break;
+
+				//for this format : //youtu.be/-wtIMTCHWuI
+
+				if ((videoURL[i] == '.' && videoURL[i + 1] == 'b'))
+				{
+					i += 4;
+					st = 1;
+				}
+
+				if (st == 1)
+				{
+					sID += videoURL[i];
+				}
+			}
+			return sID;
+		}
     }
 }
